@@ -2,7 +2,7 @@ const box = document.querySelector(".box");
 const boxColor = document.getElementById("box-color");
 const btn = document.querySelector(".container .controls button");
 const input = document.querySelector(".container .controls input");
-const hexaCodeCharacters = [
+const hexaCodeArray = [
   "0",
   "1",
   "2",
@@ -31,7 +31,7 @@ const generatehexa = () => {
   let hexa = "#";
   for (var i = 0; i < 6; i++) {
     hexa +=
-      hexaCodeCharacters[Math.floor(Math.random() * hexaCodeCharacters.length)];
+    hexaCodeArray[Math.floor(Math.random() * hexaCodeArray.length)];
   }
   return hexa;
 };
@@ -45,9 +45,18 @@ function onButtonClick() {
 
 input.addEventListener("keyup", (e) => {
   const value = e.target.value;
-
   if (value.length == 7 && value[0] === "#") {
     box.style.backgroundColor = value;
     boxColor.textContent = value;
   }
+});
+
+box.addEventListener("mouseover", () => {
+  let interval = setInterval(() => {
+    onButtonClick();
+  }, 500);
+
+  box.addEventListener("mouseleave", () => {
+    clearInterval(interval);
+  });
 });
