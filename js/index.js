@@ -30,8 +30,7 @@ const hexaCodeArray = [
 const generatehexa = () => {
   let hexa = "#";
   for (var i = 0; i < 6; i++) {
-    hexa +=
-    hexaCodeArray[Math.floor(Math.random() * hexaCodeArray.length)];
+    hexa += hexaCodeArray[Math.floor(Math.random() * hexaCodeArray.length)];
   }
   return hexa;
 };
@@ -50,6 +49,8 @@ input.addEventListener("keyup", (e) => {
     boxColor.textContent = value;
   }
 });
+
+btn.addEventListener("click", () => onButtonClick());
 
 box.addEventListener("mouseover", () => {
   let interval = setInterval(() => {
