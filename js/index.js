@@ -35,7 +35,7 @@ const generatehexa = () => {
   return hexa;
 };
 
-function onButtonClick() {
+const onButtonClick = ()=> {
   let hexaCode = generatehexa();
   input.value = hexaCode;
   box.style.backgroundColor = hexaCode;
